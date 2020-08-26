@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-(Images/Net_Diagram.png)
+![Net_Diagram](Images/Net_Diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yaml file may be used to install only certain pieces of it, such as Filebeat.  I have chosen to leave these yml files seperate to make it easier for less experienced users to deploy one or the other.  If you want to deploy both beats, I have written a basic bash script to automate that task.  You can find it in the Scripts Directory.
 
