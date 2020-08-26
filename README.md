@@ -6,9 +6,9 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yaml file may be used to install only certain pieces of it, such as Filebeat.  I have chosen to leave these yml files seperate to make it easier for less experienced users to deploy one or the other.  If you want to deploy both beats, I have written a basic bash script to automate that task.  You can find it in the Scripts Directory.
 
-(Yaml_Files/install_elk.yml)
-(Yaml_Files/filebeat_playbook.yml)
-(Yaml_Files/metricbeat_playbook.yml)
+![install elk](Yaml_Files/install_elk.yml)
+![install filebeat](Yaml_Files/filebeat_playbook.yml)
+![install metricbeat](Yaml_Files/metricbeat_playbook.yml)
 
 
 This document contains the following details:
@@ -75,7 +75,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-(Images/docker_ps.png)
+![docker_ps output](Images/docker_ps.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
