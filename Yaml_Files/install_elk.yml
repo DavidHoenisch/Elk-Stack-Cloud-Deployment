@@ -1,0 +1,43 @@
+---
+- name: set up elk server
+  hosts: elk
+  become: true
+  tasks:
+    - name: docker.io
+      apt:
+       force_apt_get: yes
+       update_cache: yes
+       name: docker.io
+       state: present
+
+    - name: Install pip3
+      apt:
+       force_apt_get: yes
+       name: python3-pip
+       state: present
+
+    - name: Install Docker python module
+      pip:
+        name: docker
+        state: present
+
+    - name: download and launch a docker web container
+      docker_container:
+        name: elk
+        image: sebp/elk:761
+        state: started
+        restart_policy: always
+        published_ports: 5601:5601, 9200:9200, 5044:5044
+
+    - name: Enable docker service
+      systemd:
+        name: docker
+        enabled: yes
+
+    - name: set maximum map count in sysctl/system
+      sysctl:
+        name: vm.max_map_count
+        value: 262144
+        state: present
+        reload: yes
+...
