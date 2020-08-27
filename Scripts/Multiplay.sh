@@ -1,5 +1,5 @@
 #!/bin/bash
 
-asnible-playbook ./filebeat_playbook.yml
-asnible-playbook ./metricbeat_install.yml
-echo "elk stack install complete"
+ansible-playbook ./filebeat-playbook.yml
+ansible-playbook ./metricbeat-playbook.yml
+echo "elk stack install complete!"
