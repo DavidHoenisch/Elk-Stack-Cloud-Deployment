@@ -1,17 +1,18 @@
 #!/bin/bash
 
+
 # this section will create the needed directory
 if [[ ! -d /etc/ansible/plays/ ]];
   then
     mkdir -p /etc/ansible/plays/
   fi
-
+# mv /tmp/simple_run_part2.sh /etc/ansible/plays/
 # this section will install the playbooks
 echo " "
 echo "grabbing the YAML files from the web"
-  curl https://raw.githubusercontent.com/DavidHoenisch/Elk-Stack-Cloud-Deployment/master/Yaml_Files/filebeat_playbook.yml > /etc/ansible/filebeat_playbook.yml
-  curl https://raw.githubusercontent.com/DavidHoenisch/Elk-Stack-Cloud-Deployment/master/Yaml_Files/metricbeat_playbook.yml > /etc/ansible/metricbeat_playbook.yml
-  curl https://raw.githubusercontent.com/DavidHoenisch/Elk-Stack-Cloud-Deployment/master/Scripts/Multiplay.sh > /etc/ansible/Multiplay.sh
+  curl https://raw.githubusercontent.com/DavidHoenisch/Elk-Stack-Cloud-Deployment/master/Yaml_Files/filebeat_playbook.yml > /etc/ansible/plays/filebeat_playbook.yml
+  curl https://raw.githubusercontent.com/DavidHoenisch/Elk-Stack-Cloud-Deployment/master/Yaml_Files/metricbeat_playbook.yml > /etc/ansible/plays/metricbeat_playbook.yml
+  curl https://raw.githubusercontent.com/DavidHoenisch/Elk-Stack-Cloud-Deployment/master/Scripts/Multiplay.sh > /etc/ansible/plays/Multiplay.sh
 echo " "
 echo "the yaml files have been successfully downlaoded"
 echo " "
@@ -21,21 +22,21 @@ read -p "it is important to edit the hosts file first! Have you done so?(yes/no)
 
 if [[ $hosts == "no" ]];
 then
-        echo "please edit the host file and then rerun the script with sudo"
+        echo "please edit the host file..."
         echo " "
         sleeps 1s
         echo "dropping you into nano on the hosts file now"
         nano /etc/ansible/hosts
 fi
-
+        echo "edit successful"
 
 #this section will make the multiplay script exicutable
-echo "making the multiplay script exicutable"
+  echo "making the multiplay script exicutable"
   chmod u+x /etc/ansible/Multiplay.sh
   echo " "
-echo "the script have been given the 'x' bit"
-sleep 1s
-echo " "
+  echo "the script have been given the 'x' bit"
+  sleep 1s
+  echo " "
 
 # this section ask the user to choose a playbook to run
 echo "[1] run the filebeat playbook"
