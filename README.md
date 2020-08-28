@@ -37,7 +37,7 @@ The configuration details of each machine may be found below.
 | Jump_Box   | Gateway    | 10.0.0.1   | Linux (Ubuntu 18.04) |
 | Web_1      | Web_ser    | 10.0.0.9   | Linux (Ubuntu 18.04) |
 | Web_2      | Web_ser    | 10.0.0.11  | Linux (Ubuntu 18.04) |
-| ELK-SERVER | Elk stack  |  10.1.0.4  | Linux (Ubuntu 18.04) |
+| ELK-SERVER | Elk stack  | 10.1.0.4   | Linux (Ubuntu 18.04) |
 
 ### Access Policies
 
@@ -98,13 +98,13 @@ SSH into the control node and follow the steps below:
 - Update hosts file in the ansible directory to include the the IP address of the ELK server that you with to run the yaml file on.
 - Run the playbook, and navigate to http://[IP_of_the_server]:5601/app/kibana to ensure that the install worked as expected.  
 
-### commands to complete the install
+### Commands to complete the install
 Completing this task will require some basic linux commands to get everything up and running.  If you are not familiar with the needed commands you can find them here:
 - sudo docker container list -a (use this to find out what the name of your container it)
 - sudo docker start [name of container] (this command starts the ansible container)
-- sudo docker attach [name of container] (this command with drop you into an ansible container shell)
+- sudo docker attach [name of container] (this command with drop you into an ansible container shell
 - cd /etc/ansible/ (this will take you to the directory where the ansible config files are, as well as where we are going to put the playbooks)
-- mkdir plays (this willl create a folder in which we will store the playbooks)
+- mkdir plays (this will create a folder in which we will store the playbooks)
 - cd plays (this will bring us into the plays directory)
 - curl [raw_link] > filebeat_install.yml
 - culr [raw_link] > metricbeat_install.yml
@@ -114,3 +114,5 @@ Completing this task will require some basic linux commands to get everything up
 - making sure you are in your plays directory run: ansible-playbook [playbook name] to run the play(s)
 - if you would like to automate the process of running both, use: chmod u+x miltiplay.sh to make the script exicutible
 - then run ./multiplay.sh to install both beats.  Please note that you will want to run the script inside the plays folder.  If you don't then you will get incomplete file path errors.  
+## Bonus Resources
+In order to make your life even easier, I have supplied that bash script that will automate this entire process.  You will need to manually make the edits to the hosts file, but once that is done, you can run the thankyoudavid.sh script and you should be good to go! ![thankyoudavid](Scripts/thankyoudavid.sh)
