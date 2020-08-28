@@ -47,21 +47,21 @@ read -p "please choose an option from above (1, 2, 3)?: " number
 
 if [[ $number == "1" ]];
 then
-      ansible-playbook /etc/ansible/filebeat_playbook.yml
+      ansible-playbook /etc/ansible/plays/filebeat_playbook.yml
       echo "install complete, exiting..."
       exit
 fi
 
 if [[ $number == "2" ]];
 then
-      ansible-playbook /etc/ansible/metricbeat_playbook.yml
+      ansible-playbook /etc/ansible/plays/metricbeat_playbook.yml
       echo "install complete, exiting..."
       exit
 fi
 
 if [[ $number == "3" ]];
 then
-      ./etc/ansible/Multiplay.sh
+      ./etc/ansible/plays/Multiplay.sh
       echo "install complete, exiting..."
       exit
 fi
