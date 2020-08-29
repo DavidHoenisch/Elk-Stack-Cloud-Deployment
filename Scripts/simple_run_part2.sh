@@ -6,7 +6,6 @@ if [[ ! -d /etc/ansible/plays/ ]];
   then
     mkdir -p /etc/ansible/plays/
   fi
-# mv /tmp/simple_run_part2.sh /etc/ansible/plays/
 # this section will install the playbooks
 echo " "
 echo "grabbing the YAML files from the web"
